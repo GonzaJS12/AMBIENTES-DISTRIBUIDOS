@@ -31,19 +31,19 @@ Abre una nueva terminal (manteniendo el servidor corriendo en la anterior) y eje
 Capturas de Pantalla de la Ejecución
 
 Ejecución normal (Suma/Resta/Multiplicación):
-![Suma](./imagenes/calculadora-suma.jpge)
-![Resta](./imagenes/calculadora-resta.jpge)
-![Multiplicacion](./imagenes/calculadora-mult.jpge)
-![Division](./imagenes/calculadora-division.jpge)
+![Suma](./imagenes/calculadora-suma.jpeg)
+![Resta](./imagenes/calculadora-resta.jpeg)
+![Multiplicacion](./imagenes/calculadora-mult.jpeg)
+![Division](./imagenes/calculadora-division.jpeg)
 
 Manejo de error (División por cero):
-![Division por cero](./imagenes/calculadora-diviporcero.jpge)
+![Division por cero](./imagenes/calculadora-diviporcero.jpeg)
 
 Inicio de servidor:
-![Inicio](./imagenes/inicio-servidor.jpge)
+![Inicio](./imagenes/inicio-servidor.jpeg)
 
 Error de servidor:
-![Error de conexion](./imagenes/error-servidor.jpge)
+![Error de conexion](./imagenes/error-servidor.jpeg)
 
 Inicio de calculadora:
-![Inicio](./imagenes/inicio-calculadora.jpge)
+![Inicio](./imagenes/inicio-calculadora.jpeg)
