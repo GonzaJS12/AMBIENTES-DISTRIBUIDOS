@@ -37,7 +37,7 @@ Ejecución normal (Suma/Resta/Multiplicación):
 ![Division](./imagenes/calculadora-division.jpeg)
 
 Manejo de error (División por cero):
-![Division por cero](./imagenes/calculadora-diviporcero.jpeg)
+![Division por cero](./imagenes/calculadora-divporcero.jpeg)
 
 Inicio de servidor:
 ![Inicio](./imagenes/inicio-servidor.jpeg)
