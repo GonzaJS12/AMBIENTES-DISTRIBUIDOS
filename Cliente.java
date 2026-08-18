@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Cliente {
     public static void main(String[] args) {
         String host = "localhost";
-        int puerto = 5000;
+        int puerto = 5500;
 
         try (Scanner scanner = new Scanner(System.in);
             Socket socket = new Socket(host, puerto);
