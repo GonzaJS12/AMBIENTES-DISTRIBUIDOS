@@ -1,0 +1,2 @@
+Method,Name,Error,Occurrences,First Seen,Last Seen
+GET,/productos,"ReadTimeout(ReadTimeoutError(""HTTPConnectionPool(host='localhost', port=8090): Read timed out. (read timeout=0.5)""))",34741,2026-11-12T04:44:03Z,2026-11-12T04:45:53Z

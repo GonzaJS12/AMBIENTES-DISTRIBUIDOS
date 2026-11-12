@@ -1,0 +1,61 @@
+services:
+  primario:
+    image: postgres:17
+    container_name: tp8-primario
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: catalogo
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+    command:
+      - postgres
+      - -c
+      - wal_level=replica
+      - -c
+      - hot_standby=on
+      - -c
+      - max_wal_senders=10
+      - -c
+      - max_replication_slots=10
+      - -c
+      - hot_standby_feedback=on
+    volumes:
+      - ./primario/init:/docker-entrypoint-initdb.d:ro
+      - pg_primario:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d catalogo && psql -U app -d catalogo -tAc \"SELECT 1 FROM pg_roles WHERE rolname = 'replicator'\" | grep -q 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    networks:
+      - tp8
+
+  replica:
+    image: postgres:17
+    container_name: tp8-replica
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: catalogo
+      PRIMARY_HOST: primario
+    entrypoint: ["bash", "/scripts/entrypoint.sh"]
+    depends_on:
+      primario:
+        condition: service_healthy
+    volumes:
+      - ./replica/entrypoint.sh:/scripts/entrypoint.sh:ro
+      - pg_replica:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    networks:
+      - tp8
+
+volumes:
+  pg_primario:
+  pg_replica:
+
+networks:
+  tp8:
