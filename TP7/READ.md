@@ -16,7 +16,7 @@ Exponer un catálogo de productos como API REST (GET lista, GET por id, POST alt
 Arquitectura
 
 - `TP7/servidor`: `ServidorHttp` en el puerto 8080, `Catalogo` en memoria, `Producto` con marshalling JSON.
-- `TP7/cliente`: `ClienteHttp`, menú por consola, independiente (no importa clases del servidor).
+- `TP7/cliente`: `ClienteHttp` (menú por consola) y `ClienteVisual` (ventana Swing). Los dos son independientes y no importan clases del servidor.
 - Canal: HTTP/1.1, `Content-Type: application/json`. Cada petición es autónoma (stateless).
 
 
@@ -55,6 +55,7 @@ Hay que ejecutar siempre primero el servidor y después el cliente, desde la car
 ```
 javac TP7\servidor\Producto.java TP7\servidor\Catalogo.java TP7\servidor\ServidorHttp.java
 javac TP7\cliente\ClienteHttp.java
+javac TP7\cliente\ClienteVisual.java
 ```
 
 2. Servidor (terminal 1)
@@ -72,6 +73,14 @@ java TP7.cliente.ClienteHttp
 ```
 
 Menú: `1` lista, `2` por id, `3` alta, `0` salir.
+
+4. Interfaz visual (en lugar del menú de consola)
+
+```
+java TP7.cliente.ClienteVisual
+```
+
+Ventana con los mismos tres casos: Listar (`GET /productos`), Buscar por id (`GET /productos/{id}`) y Dar de alta (`POST` con nombre y precio). Abajo se ve el código HTTP y el JSON. Al abrir, pide la lista sola.
 
 Pruebas sugeridas: opción 1 (200); opción 3 con nombre `Webcam` y precio `25000` (201); opción 2 con id `99` (404); opción 3 con precio `-1` (400). Si el servidor no está, el cliente informa que no pudo conectar.
 
