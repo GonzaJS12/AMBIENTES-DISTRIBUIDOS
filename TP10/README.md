@@ -69,6 +69,15 @@ python -m locust -f TP10\locustfile.py --headless -t 90s --host http://localhost
 
 `GET http://localhost:8090/metricas` devuelve los contadores del proceso (pedidos, latencia vista por el servidor).
 
+Interfaz para mirar el servicio mientras corre la prueba (no genera carga):
+
+```
+javac -encoding UTF-8 TP10\cliente\MonitorVisual.java
+java TP10.cliente.MonitorVisual
+```
+
+Muestra la lista de `GET /productos` y refresca `GET /metricas` cada 1 segundo (hilos, pedidos en curso, OK, fallos y latencias).
+
 
 Resultados de la corrida del 12 de noviembre de 2026
 
